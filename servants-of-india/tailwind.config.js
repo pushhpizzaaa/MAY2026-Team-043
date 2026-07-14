@@ -1,23 +1,31 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,jsx}"],
   theme: {
     extend: {
       colors: {
-        saffron: '#FF9933',   // or your exact brand saffron hex
-        cream: '#FFFDD0',     // light background tint
-        ink: '#1A1A1A',       // dark text/headers
-        stone: '#78716C',     // neutral descriptive text
-        leaf: '#2E7D32',      // success / green buttons
-        chakra: '#000080',    // secondary blue accents
+        // Brand palette — deep navy + saffron accent.
+        brand: {
+          50: "#eef4fb",
+          100: "#d6e4f5",
+          500: "#1e4e79",
+          600: "#173d5f",
+          700: "#0f2b46",
+          900: "#081a2c",
+        },
+        saffron: {
+          400: "#f59e0b",
+          500: "#d97706",
+          600: "#b45309",
+        },
       },
       fontFamily: {
-        display: ['Inter', 'sans-serif'], // As specified by font-display classes
-      }
+        sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+      },
+      boxShadow: {
+        card: "0 1px 3px rgba(15,43,70,0.08), 0 1px 2px rgba(15,43,70,0.04)",
+      },
     },
   },
   plugins: [],
-}
+};
