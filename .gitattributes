@@ -1,0 +1,16 @@
+# Normalise line endings for text, but never rewrite bytes inside binaries.
+# Without this, core.autocrlf=true injects CRLFs into PDFs, spreadsheets and
+# images on checkout, corrupting them for every developer on Windows.
+* text=auto
+
+*.pdf   binary
+*.xlsx  binary
+*.xls   binary
+*.jpg   binary
+*.jpeg  binary
+*.png   binary
+*.gif   binary
+*.ico   binary
+*.db    binary
+*.sqlite3 binary
+*.zip   binary
