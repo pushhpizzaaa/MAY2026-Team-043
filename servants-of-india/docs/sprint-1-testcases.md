@@ -2,7 +2,7 @@
 
 **Project:** Servants of Bharat · **Milestone 3 (Sprint 1)**
 **Format:** `[ API being tested, Inputs, Expected output, Actual output, Result (Success/Fail) ]`
-**Automated by:** `backend/tests/test_sprint1_*.py` (pytest) · **Result of last run: 41 passed.**
+**Automated by:** `servants-of-india/tests/test_sprint1_*.py` (pytest) · **Result of last run: 41 passed.**
 
 > "Actual output" below is the observed HTTP status/behaviour from the pytest run. Each row
 > maps to a named test function so it is fully reproducible with `pytest -v`.
@@ -10,7 +10,7 @@
 Run the suite:
 
 ```bash
-cd backend
+cd servants-of-india
 pytest tests/ -v
 ```
 
