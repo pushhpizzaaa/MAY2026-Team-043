@@ -125,9 +125,8 @@ The project has two independent test suites.
 
 ### Automated API Tests (pytest)
 
-The `servants-of-india/tests/` folder holds the automated Sprint 1 API suite — 41 tests
-covering authentication, user management, service categories, and event CRUD with
-ownership rules.
+The `servants-of-india/tests/` folder holds the automated API suite — 82 tests across
+9 modules, one per feature area, covering every endpoint the platform serves.
 
 Each run builds the Flask app against a throwaway SQLite database seeded with the five
 service categories and one Super Admin, so the suite is self-contained: no running
@@ -145,17 +144,38 @@ Useful variations:
 
 ```bash
 pytest tests/ -v                        # one line per test
-pytest tests/test_sprint1_auth.py       # a single file
+pytest tests/test_auth.py               # a single file
 pytest tests/ -k "ownership or status"  # match test names
+```
+
+The folder mirrors the blueprint layout under `app/` — one test module per feature area:
+
+```
+servants-of-india/tests/
+├── conftest.py                   # shared fixtures (see below)
+├── test_auth.py                  # 10 tests
+├── test_users.py                 # 15 tests
+├── test_categories.py            #  2 tests
+├── test_events.py                # 14 tests
+├── test_submissions.py           # 11 tests
+├── test_reviews.py               # 10 tests
+├── test_progress.py              #  3 tests
+├── test_certificates.py          # 10 tests
+└── test_notifications_admin.py   #  7 tests
 ```
 
 | File | Covers |
 |------|--------|
-| `tests/conftest.py` | Shared fixtures: temp-DB app, test client, user factory, JWT auth headers |
-| `tests/test_sprint1_auth.py` | Registration validation, login, blocked accounts, logout |
-| `tests/test_sprint1_users.py` | Profile read/update, password change, admin user management, status changes |
-| `tests/test_sprint1_categories.py` | Read-only category listing and its auth requirement |
-| `tests/test_sprint1_events.py` | Event create/list/get by id and slug, update, delete, ownership enforcement |
+| `tests/conftest.py` | Shared fixtures: temp-DB app, test client, user factory, JWT auth headers, category ids, event factory, proof-submission factory |
+| `tests/test_auth.py` | Registration validation, login, blocked accounts, logout |
+| `tests/test_users.py` | Profile read/update, password change, admin user management, status changes |
+| `tests/test_categories.py` | Read-only category listing and its auth requirement |
+| `tests/test_events.py` | Event create/list/get by id and slug, update, delete, ownership enforcement |
+| `tests/test_submissions.py` | Proof upload and validation, duplicate/pending rules, review queue scoping, per-submission access |
+| `tests/test_reviews.py` | Approve/reject ownership, double-review conflict, progress and notification side effects, resubmission |
+| `tests/test_progress.py` | Initial state, volunteer-only access, progress reflecting an approval |
+| `tests/test_certificates.py` | Generation gated on full completion, idempotency, listing, download, public verification |
+| `tests/test_notifications_admin.py` | Notification listing and read-state ownership, admin stats scoping per role |
 
 `pytest` is already pinned in `requirements.txt`, so step 4 of the installation
 instructions above installs everything the suite needs.
@@ -204,7 +224,7 @@ MAY2026-Team-043/
     │   ├── docs/            # OpenAPI 3 spec + Swagger UI wiring
     │   ├── auth/  users/  categories/  events/  submissions/  reviews/
     │   ├── progress/  certificates/  notifications/  admin/   # one blueprint each
-    ├── tests/                # pytest API suite (Sprint 1)
+    ├── tests/                # pytest API suite — one module per feature area
     ├── docs/                 # static swagger yaml + written test-case log
     ├── Jmeter_Tests/         # JMeter plans + manual test cases (see its own README)
     ├── seed.py               # categories + first Super Admin
