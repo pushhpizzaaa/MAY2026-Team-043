@@ -163,7 +163,7 @@ instructions above installs everything the suite needs.
 A written test-case log for this suite — every case in
 `[ API, Inputs, Expected output, Actual output, Result ]` form, plus the defects testing
 uncovered and how they were fixed — is at
-[`servants-of-india/docs/sprint-1-testcases.md`](servants-of-india/docs/sprint-1-testcases.md).
+[`servants-of-india/docs/testcases.md`](servants-of-india/docs/testcases.md).
 
 ### Performance & Manual API Tests (JMeter)
 
