@@ -1,0 +1,1363 @@
+{
+  "SC-001": {
+    "schema": {
+      "type": "object",
+      "required": [
+        "openapi",
+        "info",
+        "paths",
+        "components"
+      ],
+      "properties": {
+        "openapi": {
+          "type": "string",
+          "const": "3.0.3"
+        },
+        "info": {
+          "type": "object",
+          "required": [
+            "title",
+            "version"
+          ]
+        },
+        "paths": {
+          "type": "object"
+        },
+        "components": {
+          "type": "object"
+        }
+      }
+    },
+    "expected_code": 200
+  },
+  "SC-002": {
+    "schema": null,
+    "expected_code": 200
+  },
+  "SC-003": {
+    "schema": {
+      "type": "object",
+      "required": [
+        "success",
+        "data"
+      ],
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "const": true
+        },
+        "data": {
+          "type": "object",
+          "required": [
+            "token",
+            "user"
+          ],
+          "properties": {
+            "token": {
+              "type": "string",
+              "minLength": 10
+            },
+            "user": {
+              "type": "object",
+              "required": [
+                "id",
+                "full_name",
+                "email",
+                "role",
+                "status",
+                "created_at"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "full_name": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string",
+                  "format": "email"
+                },
+                "phone": {
+                  "type": "string"
+                },
+                "location": {
+                  "type": "string"
+                },
+                "organization": {
+                  "type": "string"
+                },
+                "role": {
+                  "type": "string",
+                  "enum": [
+                    "volunteer",
+                    "event_manager",
+                    "super_admin"
+                  ]
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "active",
+                    "blocked",
+                    "deactivated"
+                  ]
+                },
+                "created_at": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "expected_code": 201
+  },
+  "SC-004": {
+    "schema": {
+      "type": "object",
+      "required": [
+        "success",
+        "data"
+      ],
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "const": true
+        },
+        "data": {
+          "type": "object",
+          "required": [
+            "token",
+            "user"
+          ],
+          "properties": {
+            "token": {
+              "type": "string",
+              "minLength": 10
+            },
+            "user": {
+              "type": "object",
+              "required": [
+                "id",
+                "full_name",
+                "email",
+                "role",
+                "status",
+                "created_at"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "full_name": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string",
+                  "format": "email"
+                },
+                "phone": {
+                  "type": "string"
+                },
+                "location": {
+                  "type": "string"
+                },
+                "organization": {
+                  "type": "string"
+                },
+                "role": {
+                  "type": "string",
+                  "enum": [
+                    "volunteer",
+                    "event_manager",
+                    "super_admin"
+                  ]
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "active",
+                    "blocked",
+                    "deactivated"
+                  ]
+                },
+                "created_at": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "expected_code": 200
+  },
+  "SC-005": {
+    "schema": {
+      "type": "object",
+      "required": [
+        "success"
+      ],
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "const": true
+        },
+        "data": {
+          "type": "object"
+        }
+      }
+    },
+    "expected_code": 200
+  },
+  "SC-006": {
+    "schema": {
+      "type": "object",
+      "required": [
+        "success",
+        "error"
+      ],
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "const": false
+        },
+        "error": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "expected_code": 401
+  },
+  "SC-007": {
+    "schema": {
+      "type": "object",
+      "required": [
+        "success",
+        "error"
+      ],
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "const": false
+        },
+        "error": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "expected_code": 422
+  },
+  "SC-008": {
+    "schema": {
+      "type": "object",
+      "required": [
+        "success",
+        "data"
+      ],
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "const": true
+        },
+        "data": {
+          "type": "object",
+          "required": [
+            "id",
+            "full_name",
+            "email",
+            "role",
+            "status",
+            "created_at"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "full_name": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string",
+              "format": "email"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "location": {
+              "type": "string"
+            },
+            "organization": {
+              "type": "string"
+            },
+            "role": {
+              "type": "string",
+              "enum": [
+                "volunteer",
+                "event_manager",
+                "super_admin"
+              ]
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "active",
+                "blocked",
+                "deactivated"
+              ]
+            },
+            "created_at": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        }
+      }
+    },
+    "expected_code": 200
+  },
+  "SC-009": {
+    "schema": {
+      "type": "object",
+      "required": [
+        "success",
+        "data"
+      ],
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "const": true
+        },
+        "data": {
+          "type": "object",
+          "required": [
+            "id",
+            "full_name",
+            "email",
+            "role",
+            "status",
+            "created_at"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "full_name": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string",
+              "format": "email"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "location": {
+              "type": "string"
+            },
+            "organization": {
+              "type": "string"
+            },
+            "role": {
+              "type": "string",
+              "enum": [
+                "volunteer",
+                "event_manager",
+                "super_admin"
+              ]
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "active",
+                "blocked",
+                "deactivated"
+              ]
+            },
+            "created_at": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        }
+      }
+    },
+    "expected_code": 200
+  },
+  "SC-010": {
+    "schema": {
+      "type": "object",
+      "required": [
+        "success",
+        "data"
+      ],
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "const": true
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "full_name",
+              "email",
+              "role",
+              "status",
+              "created_at"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "full_name": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string",
+                "format": "email"
+              },
+              "phone": {
+                "type": "string"
+              },
+              "location": {
+                "type": "string"
+              },
+              "organization": {
+                "type": "string"
+              },
+              "role": {
+                "type": "string",
+                "enum": [
+                  "volunteer",
+                  "event_manager",
+                  "super_admin"
+                ]
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "active",
+                  "blocked",
+                  "deactivated"
+                ]
+              },
+              "created_at": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          }
+        }
+      }
+    },
+    "expected_code": 200
+  },
+  "SC-011": {
+    "schema": {
+      "type": "object",
+      "required": [
+        "success",
+        "data"
+      ],
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "const": true
+        },
+        "data": {
+          "type": "object",
+          "required": [
+            "id",
+            "full_name",
+            "email",
+            "role",
+            "status",
+            "created_at"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "full_name": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string",
+              "format": "email"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "location": {
+              "type": "string"
+            },
+            "organization": {
+              "type": "string"
+            },
+            "role": {
+              "type": "string",
+              "enum": [
+                "volunteer",
+                "event_manager",
+                "super_admin"
+              ]
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "active",
+                "blocked",
+                "deactivated"
+              ]
+            },
+            "created_at": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        }
+      }
+    },
+    "expected_code": 201
+  },
+  "SC-012": {
+    "schema": {
+      "type": "object",
+      "required": [
+        "success",
+        "data"
+      ],
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "const": true
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "name"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "expected_code": 200
+  },
+  "SC-013": {
+    "schema": {
+      "type": "object",
+      "required": [
+        "success",
+        "data"
+      ],
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "const": true
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "slug",
+              "title",
+              "description",
+              "category_id",
+              "venue",
+              "event_date",
+              "status"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "slug": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "category_id": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "category_name": {
+                "type": "string"
+              },
+              "venue": {
+                "type": "string"
+              },
+              "address": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              },
+              "event_date": {
+                "type": "string",
+                "format": "date"
+              },
+              "start_time": {
+                "type": "string"
+              },
+              "end_time": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "upcoming",
+                  "completed",
+                  "cancelled"
+                ]
+              },
+              "created_by": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          }
+        }
+      }
+    },
+    "expected_code": 200
+  },
+  "SC-014": {
+    "schema": {
+      "type": "object",
+      "required": [
+        "success",
+        "data"
+      ],
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "const": true
+        },
+        "data": {
+          "type": "object",
+          "required": [
+            "id",
+            "slug",
+            "title",
+            "description",
+            "category_id",
+            "venue",
+            "event_date",
+            "status"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "slug": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "category_id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "category_name": {
+              "type": "string"
+            },
+            "venue": {
+              "type": "string"
+            },
+            "address": {
+              "type": "string"
+            },
+            "city": {
+              "type": "string"
+            },
+            "state": {
+              "type": "string"
+            },
+            "event_date": {
+              "type": "string",
+              "format": "date"
+            },
+            "start_time": {
+              "type": "string"
+            },
+            "end_time": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "upcoming",
+                "completed",
+                "cancelled"
+              ]
+            },
+            "created_by": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        }
+      }
+    },
+    "expected_code": 201
+  },
+  "SC-015": {
+    "schema": {
+      "type": "object",
+      "required": [
+        "success",
+        "data"
+      ],
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "const": true
+        },
+        "data": {
+          "type": "object",
+          "required": [
+            "id",
+            "slug",
+            "title",
+            "description",
+            "category_id",
+            "venue",
+            "event_date",
+            "status"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "slug": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "category_id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "category_name": {
+              "type": "string"
+            },
+            "venue": {
+              "type": "string"
+            },
+            "address": {
+              "type": "string"
+            },
+            "city": {
+              "type": "string"
+            },
+            "state": {
+              "type": "string"
+            },
+            "event_date": {
+              "type": "string",
+              "format": "date"
+            },
+            "start_time": {
+              "type": "string"
+            },
+            "end_time": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "upcoming",
+                "completed",
+                "cancelled"
+              ]
+            },
+            "created_by": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        }
+      }
+    },
+    "expected_code": 200
+  },
+  "SC-016": {
+    "schema": {
+      "type": "object",
+      "required": [
+        "success",
+        "error"
+      ],
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "const": false
+        },
+        "error": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "expected_code": 422
+  },
+  "SC-017": {
+    "schema": {
+      "type": "object",
+      "required": [
+        "success",
+        "data"
+      ],
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "const": true
+        },
+        "data": {
+          "type": "object",
+          "required": [
+            "id",
+            "volunteer_id",
+            "category_id",
+            "description",
+            "status",
+            "submitted_at"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "volunteer_id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "category_id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "pending",
+                "approved",
+                "rejected"
+              ]
+            },
+            "submitted_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "image_url": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "expected_code": 201
+  },
+  "SC-018": {
+    "schema": {
+      "type": "object",
+      "required": [
+        "success",
+        "data"
+      ],
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "const": true
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "volunteer_id",
+              "category_id",
+              "description",
+              "status",
+              "submitted_at"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "volunteer_id": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "category_id": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "description": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "pending",
+                  "approved",
+                  "rejected"
+                ]
+              },
+              "submitted_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "image_url": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "expected_code": 200
+  },
+  "SC-019": {
+    "schema": {
+      "type": "object",
+      "required": [
+        "success",
+        "data"
+      ],
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "const": true
+        },
+        "data": {
+          "type": "object",
+          "required": [
+            "id",
+            "volunteer_id",
+            "category_id",
+            "description",
+            "status",
+            "submitted_at"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "volunteer_id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "category_id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "pending",
+                "approved",
+                "rejected"
+              ]
+            },
+            "submitted_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "image_url": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "expected_code": 200
+  },
+  "SC-020": {
+    "schema": {
+      "type": "object",
+      "required": [
+        "success",
+        "data"
+      ],
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "const": true
+        },
+        "data": {
+          "type": "object",
+          "required": [
+            "id",
+            "volunteer_id",
+            "category_id",
+            "description",
+            "status",
+            "submitted_at"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "volunteer_id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "category_id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "approved"
+              ]
+            },
+            "submitted_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "image_url": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "expected_code": 200
+  },
+  "SC-021": {
+    "schema": {
+      "type": "object",
+      "required": [
+        "success",
+        "data"
+      ],
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "const": true
+        },
+        "data": {
+          "type": "object",
+          "required": [
+            "categories",
+            "completed_count",
+            "total_categories",
+            "stars",
+            "all_completed"
+          ],
+          "properties": {
+            "categories": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "completed_count": {
+              "type": "integer"
+            },
+            "total_categories": {
+              "type": "integer"
+            },
+            "stars": {
+              "type": "integer"
+            },
+            "all_completed": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "expected_code": 200
+  },
+  "SC-022": {
+    "schema": {
+      "type": "object",
+      "required": [
+        "success",
+        "data"
+      ],
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "const": true
+        },
+        "data": {
+          "type": "object",
+          "required": [
+            "valid"
+          ],
+          "properties": {
+            "valid": {
+              "type": "boolean",
+              "const": false
+            }
+          }
+        }
+      }
+    },
+    "expected_code": 200
+  },
+  "SC-023": {
+    "schema": {
+      "type": "object",
+      "required": [
+        "success",
+        "data"
+      ],
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "const": true
+        },
+        "data": {
+          "type": "object",
+          "required": [
+            "notifications",
+            "unread_count"
+          ],
+          "properties": {
+            "notifications": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "id",
+                  "type",
+                  "message",
+                  "is_read",
+                  "created_at"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                      "approval",
+                      "rejection",
+                      "certificate",
+                      "system"
+                    ]
+                  },
+                  "message": {
+                    "type": "string"
+                  },
+                  "is_read": {
+                    "type": "boolean"
+                  },
+                  "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                }
+              }
+            },
+            "unread_count": {
+              "type": "integer"
+            }
+          }
+        }
+      }
+    },
+    "expected_code": 200
+  },
+  "SC-024": {
+    "schema": {
+      "type": "object",
+      "required": [
+        "success",
+        "data"
+      ],
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "const": true
+        },
+        "data": {
+          "type": "object",
+          "required": [
+            "scope"
+          ],
+          "properties": {
+            "scope": {
+              "type": "string",
+              "enum": [
+                "system"
+              ]
+            },
+            "users": {
+              "type": "object"
+            },
+            "events": {
+              "type": "integer"
+            },
+            "certificates_issued": {
+              "type": "integer"
+            }
+          }
+        }
+      }
+    },
+    "expected_code": 200
+  },
+  "SC-025": {
+    "schema": {
+      "type": "object",
+      "required": [
+        "success",
+        "data"
+      ],
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "const": true
+        },
+        "data": {
+          "type": "object",
+          "required": [
+            "scope"
+          ],
+          "properties": {
+            "scope": {
+              "type": "string",
+              "enum": [
+                "own"
+              ]
+            },
+            "events": {
+              "type": "integer"
+            },
+            "submissions": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "expected_code": 200
+  },
+  "SC-026": {
+    "schema": {
+      "type": "object",
+      "required": [
+        "success",
+        "error"
+      ],
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "const": false
+        },
+        "error": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "expected_code": 400
+  },
+  "SC-027": {
+    "schema": {
+      "type": "object",
+      "required": [
+        "success",
+        "error"
+      ],
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "const": false
+        },
+        "error": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "expected_code": 404
+  },
+  "SC-028": {
+    "schema": {
+      "type": "object",
+      "required": [
+        "success",
+        "error"
+      ],
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "const": false
+        },
+        "error": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "expected_code": 422
+  }
+}
