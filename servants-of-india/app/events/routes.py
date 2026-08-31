@@ -22,6 +22,10 @@ def _can_modify(event: Event) -> bool:
 @login_required
 def list_events():
     query = Event.query
+    # Event Managers only see the events they created; Volunteers browse them all
+    # so they can attend, and Super Admins oversee everything.
+    if g.current_user.role == UserRole.EVENT_MANAGER:
+        query = query.filter(Event.created_by == g.current_user.id)
     category = request.args.get("category")
     status = request.args.get("status")
     if category:
